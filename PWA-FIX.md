@@ -1,0 +1,1 @@
+v8: Added sw.js, manifest.webmanifest and 192/512 PNG icons. Service worker registration is relative to the current app directory for GitHub Pages subpaths. Upload all files from this folder to the same deployment directory. Existing app code/content preserved.

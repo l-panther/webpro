@@ -1,0 +1,1 @@
+WebPro UI refresh — open index.html. No build system required. All content retained. Search added; responsive home and guide cards improved. Existing SVG concept diagrams retained. This is a development build; browser interaction not fully tested.

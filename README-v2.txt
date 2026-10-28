@@ -1,0 +1,1 @@
+WebPro v2: 45 practical topic code/command examples and 9 technology examples; copy-code controls; earlier responsive stacking at 1050/900px. Original guides and technology explanations retained. Run with a local static server for best results.

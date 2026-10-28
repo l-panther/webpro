@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>WebPro — Full-Stack Web Development Companion</title>
+<meta name="description" content="Core web technologies, how the web works, and in-depth frontend/backend/security guides for employment-ready knowledge." />
+<meta name="theme-color" content="#142E52" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%90%3C/text%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='36' fill='%23142E52'/%3E%3Cpath d='M60 70 40 96l20 26M132 70l20 26-20 26M110 60 82 132' stroke='%23fff' stroke-width='9' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="WebPro" />
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="./pro-academy-nav.css">
+<link rel="stylesheet" href="./academy-dashboard.css">
+<link rel="manifest" href="./manifest.webmanifest">
+</head>
+<body>
+
+<!-- ================= HOME ================= -->
+<div class="view active" id="view-home">
+  <div class="app-header">
+    <p class="eyebrow">WEBPRO</p>
+    <h1>Full-Stack Web Development Companion</h1>
+    <p>How the web works, core technologies, and in-depth frontend/backend/security guides \u2014 employment-ready knowledge in your pocket.</p>
+  </div>
+
+  <div class="wrap">
+    <section class="workspace-hero" aria-label="Welcome to WebPro">
+      <div class="workspace-copy"><span class="hero-kicker">YOUR DEVELOPMENT WORKSPACE</span>
+        <h2>Learn how the web <em>really works.</em></h2>
+        <p>From your first HTML page to APIs, security and architecture. Clear explanations, useful diagrams and practical examples.</p>
+        <button class="hero-action" onclick="openCategory('how-it-works')">Start learning <span aria-hidden="true">→</span></button>
+      </div>
+
+    </section>
+    <section class="academy-overview" aria-label="Your learning dashboard">
+      <div class="academy-progress-panel">
+        <div class="academy-panel-heading"><div><span class="academy-overline">YOUR LEARNING JOURNEY</span><h2>Keep building your skills</h2><p>Pick up where you left off and track lessons you have reviewed.</p></div><span class="academy-progress-ring" id="academyRing" aria-label="0 percent complete"><strong id="academyPercent">0%</strong></span></div>
+        <div class="academy-progress-track" role="progressbar" aria-label="Reviewed lessons" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="academyProgressTrack"><span id="academyProgressFill"></span></div>
+        <div class="academy-progress-meta"><span id="academyCompleted">0 lessons reviewed</span><span id="academyTotal">Your learning library</span></div>
+      </div>
+      <div class="academy-continue-panel"><span class="academy-overline">CONTINUE LEARNING</span><h2 id="academyContinueTitle">Start your first lesson</h2><p id="academyContinueDesc">Explore a topic and it will appear here next time.</p><button id="academyContinueBtn" class="academy-continue-btn" onclick="academyResume()">Explore a lesson <span aria-hidden="true">→</span></button></div>
+    </section>
+    <div class="section-heading"><div><p class="section-label">GUIDED LEARNING</p><h2>Choose your learning path</h2></div><button class="text-action" onclick="showView('guides',null,'push')">All paths →</button></div>
+    <div class="academy-path-grid">
+      <button class="academy-path-card path-front" onclick="openCategory('frontend')"><span class="academy-path-symbol">&lt;/&gt;</span><span class="academy-path-label">01 · DESIGN & BUILD</span><strong>Frontend development</strong><small>HTML, CSS, responsive layouts and browser behaviour</small><span class="academy-path-arrow">Explore path →</span></button>
+      <button class="academy-path-card path-back" onclick="openCategory('backend')"><span class="academy-path-symbol">{ }</span><span class="academy-path-label">02 · DATA & LOGIC</span><strong>Backend development</strong><small>Servers, APIs, authentication and databases</small><span class="academy-path-arrow">Explore path →</span></button>
+      <button class="academy-path-card path-sec" onclick="openCategory('security')"><span class="academy-path-symbol">◈</span><span class="academy-path-label">03 · BUILD SECURELY</span><strong>Web security</strong><small>Common vulnerabilities and defensive techniques</small><span class="academy-path-arrow">Explore path →</span></button>
+    </div>
+    <div class="academy-feature-strip"><div><span class="academy-overline">PRACTICAL LEARNING</span><h2>Learn the concept. Build the project.</h2><p>Each workshop connects explanations to real code, tests and deployment skills.</p></div><button onclick="openCategory('testing')">Explore workshops →</button></div>
+    <div class="section-heading"><div><p class="section-label">YOUR SHORTCUTS</p><h2>What would you like to explore?</h2></div></div>
+    <div class="quick-grid">
+      <button class="quick-card" onclick="showView('technologies',null,'push')">
+        <span class="icon-badge" style="background:var(--slate);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+        </span>
+        <h3>Technologies</h3>
+        <p>HTML, CSS, JS, PHP, HTTP, databases, APIs &amp; more.</p>
+      </button>
+
+      <button class="quick-card" onclick="showView('guides',null,'push')">
+        <span class="icon-badge" style="background:var(--navy);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22.5"/><path d="M4 4.5v16"/></svg>
+        </span>
+        <h3>Guides</h3>
+        <p>How the web works, frontend, backend, security, career.</p>
+      </button>
+
+      <button class="quick-card" onclick="openCategory('security')">
+        <span class="icon-badge" style="background:var(--red);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6Z"/></svg>
+        </span>
+        <h3>Security</h3>
+        <p>XSS, CSRF, SQL injection, HTTPS, CORS &amp; more.</p>
+      </button>
+
+      <button class="quick-card" onclick="openTopic('how-it-works','request-response-cycle')">
+        <span class="icon-badge" style="background:var(--teal);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+        </span>
+        <h3>Popular</h3>
+        <p>The HTTP request/response cycle \u2014 start here.</p>
+      </button>
+    </div>
+
+    <div class="section-heading"><div><p class="section-label">REFERENCE LIBRARY</p><h2>Browse technologies</h2></div><button class="text-action" onclick="showView('technologies',null,'push')">View all →</button></div>
+    <div id="homeTechList" class="home-tech-grid"></div>
+    <div class="section-heading"><div><p class="section-label">LEARNING PATHS</p><h2>Browse by subject</h2></div><button class="text-action" onclick="showView('guides',null,'push')">All guides →</button></div>
+    <div id="homeCategoryList" class="home-categories"></div>
+  </div>
+</div>
+
+<!-- ================= TECHNOLOGIES LIST ================= -->
+<div class="view" id="view-technologies">
+  <div class="sub-header">
+    <button class="sub-back" onclick="showView('home',null,'pop')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="sub-header-text">
+      <p class="eyebrow">WEBPRO</p>
+      <h2>Technologies</h2>
+    </div>
+  </div>
+  <div class="wrap"><p class="library-intro">Find core concepts, practical examples and interview essentials for each technology.</p><div id="techListWrap" class="library-grid"></div></div>
+</div>
+
+<!-- ================= TECH DETAIL ================= -->
+<div class="view" id="view-tech-detail">
+  <div class="sub-header">
+    <button class="sub-back" onclick="showView('technologies',null,'pop')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="sub-header-text">
+      <p class="eyebrow">TECHNOLOGY</p>
+      <h2 id="techDetailTitle"></h2>
+    </div>
+  </div>
+  <div class="detail-wrap" id="techDetailContent"></div>
+</div>
+
+<!-- ================= GUIDE CATEGORIES ================= -->
+<div class="view" id="view-guides">
+  <div class="sub-header">
+    <button class="sub-back" onclick="showView('home',null,'pop')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="sub-header-text">
+      <p class="eyebrow">WEBPRO</p>
+      <h2>Guides</h2>
+    </div>
+  </div>
+  <div class="wrap"><p class="library-intro">Explore guided topics grouped by the skills you use in real projects.</p><div id="categoriesListWrap" class="library-grid"></div></div>
+</div>
+
+<!-- ================= TOPIC LIST ================= -->
+<div class="view" id="view-category">
+  <div class="sub-header">
+    <button class="sub-back" onclick="showView('guides',null,'pop')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="sub-header-text">
+      <p class="eyebrow">GUIDES</p>
+      <h2 id="categoryTitle"></h2>
+    </div>
+  </div>
+  <div class="wrap"><div id="categoryContent" class="topic-grid"></div></div>
+</div>
+
+<!-- ================= TOPIC DETAIL ================= -->
+<div class="view" id="view-topic">
+  <div class="sub-header">
+    <button class="sub-back" id="topicBackBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="sub-header-text">
+      <p class="eyebrow" id="topicEyebrow">GUIDE</p>
+      <h2 id="topicTitle"></h2>
+    </div>
+  </div>
+  <div class="detail-wrap" id="topicContent"></div>
+</div>
+
+<!-- ================= SEARCH ================= -->
+<div class="view" id="view-search"><div class="sub-header"><button class="sub-back" onclick="showView('home',null,'pop')" aria-label="Back to home">‹</button><div class="sub-header-text"><p class="eyebrow">WEBPRO</p><h2>Search reference</h2></div></div>
+<div class="wrap"><label class="search-label" for="globalSearch">Search technologies and guides</label><input id="globalSearch" class="search-input" type="search" placeholder="Try JavaScript, DNS, authentication…" autocomplete="off" oninput="renderSearch(this.value)" /><p class="search-hint" id="searchCount">Start typing to find a topic.</p><div id="searchResults" class="library-grid"></div></div></div>
+<!-- ================= TOOLBAR ================= -->
+<div class="app-toolbar">
+  <button class="tab-btn active" id="tabHome" onclick="showView('home',null,'pop')">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>
+    Home
+  </button>
+  <button class="tab-btn" id="tabTechnologies" onclick="showView('technologies',null,'push')">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+    Tech
+  </button>
+  <button class="tab-btn" id="tabGuides" onclick="showView('guides',null,'push')">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22.5"/></svg>
+    Guides
+  </button>
+  <button class="tab-btn" id="tabSearch" onclick="showView('search',null,'push')" aria-label="Search">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>Search
+  </button>
+</div>
+
+<script src="app.js" defer></script>
+
+<script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+ window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js', {scope:'./'}).catch(error => console.warn('WebPro offline mode unavailable:',error)));
+}
+</script>
+</body>
+</html>
